@@ -1,0 +1,253 @@
+package vn.edu.vnuk.swing;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class AddNewLecturer extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField name;
+	private JTextField yearOfBirth;
+	private JTextField homeTown;
+	private JTextField department;
+	private JTextField salaryRatio;
+	private JTextField yearsOfWork;
+	private JTextField certificate;
+	private JComboBox comboBox;
+	private JTextField allwance;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddNewLecturer frame = new AddNewLecturer();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AddNewLecturer() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 911, 326);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(1, 0, 163, 286);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JButton btnAddNewEmployee = new JButton("1.Add new Employee");
+		btnAddNewEmployee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddNewLecturer window = new AddNewLecturer();
+				window.setVisible(true);
+				
+			}
+		});
+		btnAddNewEmployee.setBounds(2, 0, 160, 64);
+		btnAddNewEmployee.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(btnAddNewEmployee);
+		
+		JButton btnNewButton = new JButton("2.Modify list of Employee");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModifyListOfEmployee menu2 = new ModifyListOfEmployee();
+				menu2.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnNewButton.setBounds(1, 71, 160, 64);
+		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(btnNewButton);
+		
+		JButton btnupdateBasicSalary = new JButton("3.Update basic salary");
+		btnupdateBasicSalary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateSalary menu2 = new UpdateSalary();
+				menu2.setVisible(true);
+				dispose();
+			}
+		});
+		btnupdateBasicSalary.setBounds(1, 145, 160, 63);
+		panel.add(btnupdateBasicSalary);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnExit.setBounds(1, 218, 160, 64);
+		panel.add(btnExit);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(176, -1, 275, 287);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblId = new JLabel("ID :");
+		lblId.setHorizontalAlignment(SwingConstants.LEFT);
+		lblId.setBounds(26, 14, 70, 25);
+		panel_1.add(lblId);
+		
+		JLabel lblType = new JLabel("TYPE :");
+		lblType.setHorizontalAlignment(SwingConstants.LEFT);
+		lblType.setBounds(26, 46, 76, 14);
+		panel_1.add(lblType);
+		
+		JLabel lblFullName = new JLabel("Full Name :");
+		lblFullName.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFullName.setBounds(26, 71, 94, 14);
+		panel_1.add(lblFullName);
+		
+		JLabel lblYearOfBirth = new JLabel("Year Of Birth :");
+		lblYearOfBirth.setBounds(26, 96, 105, 14);
+		panel_1.add(lblYearOfBirth);
+		
+		JLabel lblHomeTown = new JLabel("Home Town :");
+		lblHomeTown.setBounds(26, 121, 105, 14);
+		panel_1.add(lblHomeTown);
+		
+		JLabel lblDepartment = new JLabel("Department :");
+		lblDepartment.setBounds(24, 146, 107, 14);
+		panel_1.add(lblDepartment);
+		
+		JLabel lblSalaryRatio = new JLabel("Salary Ratio :");
+		lblSalaryRatio.setBounds(26, 171, 101, 14);
+		panel_1.add(lblSalaryRatio);
+		
+		JLabel lblYearOfWork = new JLabel("Year Of Work :");
+		lblYearOfWork.setBounds(26, 196, 106, 14);
+		panel_1.add(lblYearOfWork);
+		
+		JLabel lblPosition = new JLabel("Certificate :");
+		lblPosition.setBounds(26, 221, 108, 14);
+		panel_1.add(lblPosition);
+		
+		textField = new JTextField();
+		textField.setBounds(134, 12, 130, 24);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		name = new JTextField();
+		name.setBounds(134, 65, 130, 20);
+		panel_1.add(name);
+		name.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Apply");
+		btnNewButton_1.setBounds(176, 257, 89, 23);
+		panel_1.add(btnNewButton_1);
+		
+		comboBox = new JComboBox();
+		comboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					if(comboBox.getSelectedItem().toString().equals("CasualWorker")) {
+						AddNewCasualWorker menu13 = new AddNewCasualWorker();
+						menu13.setVisible(true);
+						
+					}
+					else if(comboBox.getSelectedItem().toString().equals("Staff")) {
+						AddNewStaff menu12 = new AddNewStaff();
+						menu12.setVisible(true);
+						
+					}
+				}
+			}
+		});
+		comboBox.addItem("Lectuer");
+		comboBox.addItem("Staff");
+		comboBox.addItem("CasualWorker");
+		comboBox.setBounds(134, 40, 130, 20);
+		panel_1.add(comboBox);
+		
+		yearOfBirth = new JTextField();
+		yearOfBirth.setBounds(134, 90, 130, 20);
+		panel_1.add(yearOfBirth);
+		yearOfBirth.setColumns(10);
+		
+		homeTown = new JTextField();
+		homeTown.setBounds(134, 115, 130, 20);
+		panel_1.add(homeTown);
+		homeTown.setColumns(10);
+		
+		department = new JTextField();
+		department.setBounds(134, 140, 130, 20);
+		panel_1.add(department);
+		department.setColumns(10);
+		
+		salaryRatio = new JTextField();
+		salaryRatio.setBounds(134, 165, 130, 20);
+		panel_1.add(salaryRatio);
+		salaryRatio.setColumns(10);
+		
+		yearsOfWork = new JTextField();
+		yearsOfWork.setBounds(134, 190, 130, 20);
+		panel_1.add(yearsOfWork);
+		yearsOfWork.setColumns(10);
+		
+		certificate = new JTextField();
+		certificate.setBounds(134, 215, 130, 20);
+		panel_1.add(certificate);
+		certificate.setColumns(10);
+		
+		JLabel lblAllowance = new JLabel("Allowance :");
+		lblAllowance.setBounds(26, 239, 70, 14);
+		panel_1.add(lblAllowance);
+		
+		allwance = new JTextField();
+		allwance.setBounds(134, 236, 130, 20);
+		panel_1.add(allwance);
+		allwance.setColumns(10);
+		
+		Object[][] data = 
+			{
+					{"Kathy", "Smith", new Integer(5), new Boolean(false),},
+			};
+			
+			String[] column= {"Full Name",
+	                "Year of birth",
+	                "Work on Day",
+	                "Earning Per Day"
+			};
+			contentPane.setLayout(null);
+		
+		JTable table = new JTable(data,column);
+		table.setPreferredScrollableViewportSize(new Dimension(500,70));
+		JScrollPane pane = new JScrollPane(table);
+		pane.setBounds(461, 45, 424, 198);
+		contentPane.add(pane);
+	}
+}
